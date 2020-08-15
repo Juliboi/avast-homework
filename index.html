@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Homework</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="subscription-plan">
+        <div class="subscription-plan__wrapper">
+            <div class="subscription-plan__head">
+                <h1 class='subscription-plan__title'>Please choose the length of your plan</h1>
+                <div class="subscription-plan__updater">
+                    <h3>Avast Driver Updater</h3>
+                    <ul class='subscription-plan__benefits'>
+                        <benefit-list-item>
+                            <div slot="content">Auto-scan your computer for outdated, missing, or corrupt drivers</div>
+                        </benefit-list-item>
+                        <benefit-list-item>
+                            <div slot='content'>Check more than 500,000 drivers and software updates
+                            </div>
+                        </benefit-list-item>
+                        <benefit-list-item>
+                            <div slot='content'>Keep your PC and devices running optimally with one click</div>
+                        </benefit-list-item>
+                        <!-- <benefit-list-item content='Check more than 500,000 drivers and software updates' />
+                        <benefit-list-item content='Keep your PC and devices running optimally with one click' /> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="subscription-plan__body">
+                <selector-list></selector-list>
+            </div>
+            <div class="subscription-plan__footer">
+                <submit-button>
+                    <div slot='content'>Buy Now</div>
+                </submit-button>
+                <p class='subscription-plan__money-back'>30-day money-back guarantee</p>
+            </div>
+        </div>
+    </div>
+
+    <script type='module' src="main.js"></script>
+    <script src='./components/BenefitListItem.js'></script>
+    <script src='./components/PlanListItem.js'></script>
+    <script type='module' src='./components/SelectorList.js'></script>
+    <script type='module' src='./components/SubmitButton.js'></script>
+    <script src='./constants/index.js'></script>
+</body>
+
+</html>
