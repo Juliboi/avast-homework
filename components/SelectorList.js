@@ -24,8 +24,7 @@ class SelectorList extends HTMLElement {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
     this.shadow.appendChild(template.content.cloneNode(true));
-    console.log(this);
-    // this.renderPlanItems();
+    this.renderPlanItems();
   }
 
   renderPlanItems = () => {
@@ -33,13 +32,20 @@ class SelectorList extends HTMLElement {
 
     const plans = planSelector
       .map((data) => {
-        const { monthlyPrice, yearlyPrice, url } = data;
-        console.log(list);
+        const {
+          monthlyPrice,
+          yearlyPrice,
+          url,
+          isRecommended,
+          yearsCount,
+        } = data;
+        const yearsCounter = `${yearsCount > 1 ? 'years' : 'year'}`;
+
         return `
-        <plan-list-item>
-          <div slot='years'>1</div>
+        <plan-list-item url=${url} isRecommended=${isRecommended}>
+          <div slot='years'>${yearsCount}-${yearsCounter} subscription</div>
           <div slot='monthly'>${monthlyPrice} / month</div>
-          <div slot='yearly'>${yearlyPrice}</div>
+          <div slot='yearly'>Billed as ${yearlyPrice} / ${yearsCount} ${yearsCounter}</div>
         </plan-list-item>`;
       })
       .join('');

@@ -42,10 +42,6 @@ planTemplate.innerHTML = `
     .selector-plan__yearly {
       margin-left: 6rem;
     }
-
-
-
-
     
   </style>
 
@@ -70,7 +66,15 @@ class PlanListItem extends HTMLElement {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
     this.shadow.appendChild(planTemplate.content.cloneNode(true));
-    // console.log(this);
+    this.isRecommended === 'true' && this.recommendedBadge();
+  }
+
+  get isRecommended() {
+    return this.getAttribute('isRecommended');
+  }
+
+  set recommendedBadge(yo) {
+    console.log(123);
   }
 }
 
