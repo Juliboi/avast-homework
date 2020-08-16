@@ -20,9 +20,7 @@ footerTemplate.innerHTML = `
   </style>
 
   <ul class='subscription-plan__footer'>
-    <submit-button>
-        <div slot='content'>Buy Now</div>
-    </submit-button>
+    <slot name='submit-button'></slot>
     <p class='subscription-plan__money-back'>30-day money-back guarantee</p>
   </ul>
 `;

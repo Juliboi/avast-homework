@@ -1,31 +1,6 @@
 const bodyTemplate = document.createElement('template');
 bodyTemplate.innerHTML = `
   <style>
-    .subscription-plan {
-    width: 1008px;
-    height: 632px;
-    background: salmon;
-    background: rgb(6, 6, 51);
-    background: -moz-linear-gradient(
-      167deg,
-      rgba(6, 6, 51, 1) 0%,
-      rgba(31, 28, 92, 1) 43%,
-      rgba(61, 61, 132, 1) 100%
-    );
-    background: -webkit-linear-gradient(
-      167deg,
-      rgba(6, 6, 51, 1) 0%,
-      rgba(31, 28, 92, 1) 43%,
-      rgba(61, 61, 132, 1) 100%
-    );
-    background: linear-gradient(
-      167deg,
-      rgba(6, 6, 51, 1) 0%,
-      rgba(31, 28, 92, 1) 43%,
-      rgba(61, 61, 132, 1) 100%
-    );
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#060633",endColorstr="#3d3d84",GradientType=1);
-  }
 
   .subscription-plan__wrapper {
     box-sizing: border-box;
@@ -36,13 +11,12 @@ bodyTemplate.innerHTML = `
 
   </style>
 
-    <form class="subscription-plan">
-        <div class="subscription-plan__wrapper">
-          <slot name='subscription-header'></slot>
-          <slot name='subscription-body'></slot>
-          <slot name='subscription-footer'></slot>
-        </div>
-    </form>
+  <div class="subscription-plan__wrapper">
+    <slot name='subscription-header'></slot>
+    <slot name='subscription-body'></slot>
+    <slot name='subscription-footer'>
+    </slot>
+  </div>
 `;
 
 class SubscriptionComponent extends HTMLElement {
@@ -50,6 +24,30 @@ class SubscriptionComponent extends HTMLElement {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
     this.shadow.appendChild(bodyTemplate.content.cloneNode(true));
+
+    this.state = {
+      currentSubscription: 'https://url-2-years.com',
+    };
+  }
+
+  connectedCallback() {
+    this.updateChildren();
+
+    this.addEventListener('add-subscription', this.handleSubscription);
+
+    this.handleSubscription = this.handleSubscription.bind(this);
+  }
+
+  handleSubscription() {
+    this.state.currentSubscription = event.detail.currentSubscription;
+
+    this.updateChildren();
+  }
+
+  updateChildren() {
+    this.querySelector(
+      '.submit-button'
+    ).dataset.currentSubscription = this.state.currentSubscription;
   }
 }
 

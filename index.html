@@ -11,19 +11,27 @@
 </head>
 
 <body>
-    <subscription-component>
-        <subscription-header slot='subscription-header'>
-            <subscription-updater slot='subscription-updater'>
-                <benefit-list slot='benefit-list'></benefit-list>
-            </subscription-updater>
-        </subscription-header>
-        <subscription-body slot='subscription-body'>
-            <selector-list slot='selector-list'></selector-list>
-        </subscription-body>
-        <subscription-footer slot='subscription-footer'></subscription-footer>
-    </subscription-component>
+    <form action='GET' class="subscription-plan">
+        <subscription-component>
 
+            <subscription-header slot='subscription-header'>
+                <subscription-updater slot='subscription-updater'>
+                    <benefit-list slot='benefit-list'></benefit-list>
+                </subscription-updater>
+            </subscription-header>
 
+            <subscription-body slot='subscription-body'>
+                <selector-list slot='selector-list'></selector-list>
+            </subscription-body>
+
+            <subscription-footer slot='subscription-footer'>
+                <button class='submit-button' type='submit' is='submit-button' slot='submit-button'>Buy Now</button>
+            </subscription-footer>
+
+        </subscription-component>
+    </form>
+
+    <!-- <script type='module' src='./components/index.js'></script> -->
     <script type='module' src="main.js"></script>
     <script type='module' src='./components/BenefitList.js'></script>
     <script type='module' src='./components/SelectorList.js'></script>
@@ -36,6 +44,7 @@
     <script src='./components/SubscriptionFooter.js'></script>
     <script src='./components/SubscriptionComponent.js'></script>
     <script src='./components/RadioButton.js'></script>
+    <script src='./components/RecommendedBadge.js'></script>
     <script src='./constants/index.js'></script>
 </body>
 

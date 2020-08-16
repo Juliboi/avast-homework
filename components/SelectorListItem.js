@@ -17,6 +17,7 @@ selectorListTemplate.innerHTML = `
       color: var(--primary-text);
       border: none;
       border-top: 1px solid var(--secondary-text-transparent);
+      border-bottom: 1px solid var(--secondary-text-transparent);
       font-size: 1.5rem;
       font-family: 'Montserrat';
       cursor: pointer;
@@ -27,28 +28,15 @@ selectorListTemplate.innerHTML = `
       background: #a09db51f;
     }
 
-    // ::slotted(*:last-child) {
-    //   display: none;
-    // }
-
     .selector-list__subscription {
       display: flex;
       align-items: center;
     }
 
-    .selector-list__radio {
-      display: flex;
-      align-items: center;
-      width:17px;
-      height:17px;
-      background: var(--ternary-blue);
-      border-radius: 50%;
-      border: 1px solid var(--secondary-text);
-      margin-right: 1.5rem;
-    }
-
     .selector-list__pricing {
       display: flex;
+      justify-content: space-between;
+      width: 350px;
     }
 
     .selector-list__monthly {
@@ -58,14 +46,16 @@ selectorListTemplate.innerHTML = `
     .selector-list__yearly {
       margin-left: 6rem;
     }
-    
+
+
   </style>
 
   <li class='selector-list__item'>
-    <button class='selector-list__button'> 
+    <button  class='selector-list__button'> 
       <div class='selector-list__subscription'>
-        <radio-button></radio-button>
+        <slot name='radio-button'></slot>
         <p class='selector-list__years'><slot name='years' /></p>
+        <slot name='recommended'></slot>
       </div>
 
       <div class='selector-list__pricing'>
@@ -81,15 +71,36 @@ class SelectorListItem extends HTMLElement {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
     this.shadow.appendChild(selectorListTemplate.content.cloneNode(true));
-    this.isRecommended === 'true' && console.log(123);
+
+    this.state = {};
   }
 
-  get isRecommended() {
-    return this.getAttribute('isRecommended');
+  connectedCallback() {
+    this.shadow.addEventListener('click', (e) => this.handleCheckbox(e));
+
+    this.addEventListener('click', this.handleSubscription);
+
+    this.handleSubscription = this.handleSubscription.bind(this);
   }
 
-  set recommendedBadge(yo) {
-    console.log(123);
+  get url() {
+    return this.getAttribute('url');
+  }
+
+  handleSubscription() {
+    this.dispatchEvent(
+      new CustomEvent('add-subscription', {
+        bubbles: true,
+        composed: true,
+        detail: {
+          currentSubscription: this.url,
+        },
+      })
+    );
+  }
+
+  handleCheckbox(e) {
+    this.querySelector('.selector-list__radio').checked = true;
   }
 }
 
