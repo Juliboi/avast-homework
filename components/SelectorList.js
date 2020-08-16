@@ -53,7 +53,7 @@ selectorItemTemplate.innerHTML = `
           isRecommended,
           yearsCount,
         } = data;
-        const yearsCounter = `${yearsCount > 1 ? 'years' : 'year'}`;
+        const years = `${yearsCount > 1 ? 'years' : 'year'}`;
 
         return `
           <selector-list-item url=${url}>
@@ -63,14 +63,14 @@ selectorItemTemplate.innerHTML = `
               } slot='radio-button' name='subscription'/>
               <label class='selector-list__pointer' slot='pointer' for='radio'></label>
             </div>
-            <div slot='years'>${yearsCount}-${yearsCounter} subscription</div>
+            <div slot='years'>${yearsCount}-${years} subscription</div>
             ${
               isRecommended
                 ? "<recommended-badge slot='recommended'></recommended-badge>"
                 : ''
             }
             <div slot='monthly'>${monthlyPrice} / month</div>
-            <div slot='yearly'>Billed as ${yearlyPrice} / ${yearsCount} ${yearsCounter}</div>
+            <div slot='yearly'>Billed as ${yearlyPrice} / ${yearsCount} ${years}</div>
           </selector-list-item>`;
       })
       .join('')}

@@ -47,7 +47,6 @@ selectorListTemplate.innerHTML = `
       margin-left: 6rem;
     }
 
-
   </style>
 
   <li class='selector-list__item'>
