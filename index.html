@@ -11,45 +11,31 @@
 </head>
 
 <body>
-    <div class="subscription-plan">
-        <div class="subscription-plan__wrapper">
-            <div class="subscription-plan__head">
-                <h1 class='subscription-plan__title'>Please choose the length of your plan</h1>
-                <div class="subscription-plan__updater">
-                    <h3>Avast Driver Updater</h3>
-                    <ul class='subscription-plan__benefits'>
-                        <benefit-list-item>
-                            <div slot="content">Auto-scan your computer for outdated, missing, or corrupt drivers</div>
-                        </benefit-list-item>
-                        <benefit-list-item>
-                            <div slot='content'>Check more than 500,000 drivers and software updates
-                            </div>
-                        </benefit-list-item>
-                        <benefit-list-item>
-                            <div slot='content'>Keep your PC and devices running optimally with one click</div>
-                        </benefit-list-item>
-                        <!-- <benefit-list-item content='Check more than 500,000 drivers and software updates' />
-                        <benefit-list-item content='Keep your PC and devices running optimally with one click' /> -->
-                    </ul>
-                </div>
-            </div>
-            <div class="subscription-plan__body">
-                <selector-list></selector-list>
-            </div>
-            <div class="subscription-plan__footer">
-                <submit-button>
-                    <div slot='content'>Buy Now</div>
-                </submit-button>
-                <p class='subscription-plan__money-back'>30-day money-back guarantee</p>
-            </div>
-        </div>
-    </div>
+    <subscription-component>
+        <subscription-header slot='subscription-header'>
+            <subscription-updater slot='subscription-updater'>
+                <benefit-list slot='benefit-list'></benefit-list>
+            </subscription-updater>
+        </subscription-header>
+        <subscription-body slot='subscription-body'>
+            <selector-list slot='selector-list'></selector-list>
+        </subscription-body>
+        <subscription-footer slot='subscription-footer'></subscription-footer>
+    </subscription-component>
+
 
     <script type='module' src="main.js"></script>
-    <script src='./components/BenefitListItem.js'></script>
-    <script src='./components/PlanListItem.js'></script>
+    <script type='module' src='./components/BenefitList.js'></script>
     <script type='module' src='./components/SelectorList.js'></script>
-    <script type='module' src='./components/SubmitButton.js'></script>
+    <script src='./components/BenefitListItem.js'></script>
+    <script src='./components/SelectorListItem.js'></script>
+    <script src=' ./components/SubmitButton.js'></script>
+    <script src='./components/SubscriptionUpdater.js'></script>
+    <script src='./components/SubscriptionHeader.js'></script>
+    <script type='module' src='./components/SubscriptionBody.js'></script>
+    <script src='./components/SubscriptionFooter.js'></script>
+    <script src='./components/SubscriptionComponent.js'></script>
+    <script src='./components/RadioButton.js'></script>
     <script src='./constants/index.js'></script>
 </body>
 

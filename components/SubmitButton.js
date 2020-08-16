@@ -1,5 +1,5 @@
-const planTemplate = document.createElement('template');
-planTemplate.innerHTML = `
+const submitTemplate = document.createElement('template');
+submitTemplate.innerHTML = `
   <style>
    .submit-button {
      width: 15rem;
@@ -32,7 +32,7 @@ class SubmitButton extends HTMLElement {
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
-    this.shadow.appendChild(planTemplate.content.cloneNode(true));
+    this.shadow.appendChild(submitTemplate.content.cloneNode(true));
     // console.log(this);
   }
 }

@@ -2,11 +2,11 @@
 
 // template.innerHTML = `
 //   <style>
-//     .subscription-plan__benefit {
+//     .benefit__benefit {
 //       padding: 1rem;
 //     }
 
-//     .subscription-plan__check {
+//     .benefit__check {
 //       width: 10px;
 //       height: 10px;
 //       background-image: url('images/tick.svg') center no-repeat;
@@ -15,8 +15,8 @@
 
 //   </style>
 
-//     <li class='subscription-plan__benefit'>
-//       <span class='subscription-plan__check'></span>
+//     <li class='benefit__benefit'>
+//       <span class='benefit__check'></span>
 //       ${this.content}
 //     </li>
 //   `;
@@ -46,22 +46,22 @@
 const template = document.createElement('template');
 template.innerHTML = `
   <style>
-    .subscription-plan__benefit {
-      padding-top: 0.7rem;
+    .benefit__item {
+      padding-top: 0.5rem;
       display: flex;
       align-items: center;
       font-weight: 600;
       color: var(--secondary-text);
     }
 
-    .subscription-plan__check {
+    .benefit__check {
 
     }
 
   </style>
 
-  <li class='subscription-plan__benefit'>
-    <span class='subscription-plan__check'>
+  <li class='benefit__item'>
+    <span class='benefit__check'>
       <img src='images/tick.svg'/>
     </span>
     <slot name='content'/>

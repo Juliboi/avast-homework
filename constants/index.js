@@ -22,4 +22,18 @@ export const __DATA__ = {
       yearsCount: 3,
     },
   ],
+  contentOfBenefits: [
+    {
+      text: 'Auto-scan your computer for outdated, missing, or corrupt drivers',
+      checked: true,
+    },
+    {
+      text: 'Check more than 500,000 drivers and software updates',
+      checked: true,
+    },
+    {
+      text: 'Keep your PC and devices running optimally with one click',
+      checked: true,
+    },
+  ],
 };

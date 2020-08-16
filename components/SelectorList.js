@@ -1,20 +1,38 @@
 import { __DATA__ } from '../constants/index.js';
-// import { PlanListItem } from './PlanListItem';
 
 const { planSelector } = __DATA__;
 
-const template = document.createElement('template');
-template.innerHTML = `
+const selectorItemTemplate = document.createElement('template');
+selectorItemTemplate.innerHTML = `
   <style>
 
-    .selector-plan {
+    .selector-list {
       padding-left: 0;
     }
 
 
   </style>
 
-  <ul class='selector-plan'>
+  <ul class='selector-list'>
+  ${planSelector
+    .map((data) => {
+      const {
+        monthlyPrice,
+        yearlyPrice,
+        url,
+        isRecommended,
+        yearsCount,
+      } = data;
+      const yearsCounter = `${yearsCount > 1 ? 'years' : 'year'}`;
+
+      return `
+        <selector-list-item url=${url} isRecommended=${isRecommended}>
+          <div slot='years'>${yearsCount}-${yearsCounter} subscription</div>
+          <div slot='monthly'>${monthlyPrice} / month</div>
+          <div slot='yearly'>Billed as ${yearlyPrice} / ${yearsCount} ${yearsCounter}</div>
+        </selector-list-item>`;
+    })
+    .join('')}
 
   </ul>
 `;
@@ -23,38 +41,9 @@ class SelectorList extends HTMLElement {
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
-    this.shadow.appendChild(template.content.cloneNode(true));
-    this.renderPlanItems();
-  }
+    this.shadow.appendChild(selectorItemTemplate.content.cloneNode(true));
 
-  renderPlanItems = () => {
-    const list = this.shadow.querySelector('.selector-plan');
-
-    const plans = planSelector
-      .map((data) => {
-        const {
-          monthlyPrice,
-          yearlyPrice,
-          url,
-          isRecommended,
-          yearsCount,
-        } = data;
-        const yearsCounter = `${yearsCount > 1 ? 'years' : 'year'}`;
-
-        return `
-        <plan-list-item url=${url} isRecommended=${isRecommended}>
-          <div slot='years'>${yearsCount}-${yearsCounter} subscription</div>
-          <div slot='monthly'>${monthlyPrice} / month</div>
-          <div slot='yearly'>Billed as ${yearlyPrice} / ${yearsCount} ${yearsCounter}</div>
-        </plan-list-item>`;
-      })
-      .join('');
-
-    list.innerHTML = plans;
-  };
-
-  connectedCallback() {
-    this.renderPlanItems();
+    this.checkedRadio = [];
   }
 }
 
