@@ -5,7 +5,7 @@ bodyTemplate.innerHTML = `
   .subscription-plan__wrapper {
     box-sizing: border-box;
     height: 100%;
-    padding: 5.5rem calc(2rem + (60 - 20) * ((100vw - 300px) / (1920 - 300)));
+    padding: 5.5rem calc(2rem + (60 - 20) * ((100vw - 300px) / (1920 - 300))); //dynamic value according to viewport width
     padding-bottom: 0;
   }
 

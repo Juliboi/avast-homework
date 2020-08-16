@@ -11,20 +11,13 @@ selectorItemTemplate.innerHTML = `
     }
     
     .selector-list__radio {
-      margin-top: 0;
-      margin-right: 1.5rem;
-    }
-
-
-
-    .selector-list__radio {
       display: none;
     }
 
     .selector-list__pointer {
       position:relative;
     }
-
+    
     .selector-list__radio + .selector-list__pointer {
       content: '';
       display: inline-block;
@@ -32,7 +25,7 @@ selectorItemTemplate.innerHTML = `
       height: 14px;
       width: 14px;
       border-radius: 50%;
-      margin: 2px 5px 0 0px
+      margin-right: 1.5rem;
     }
     .selector-list__radio:checked + .selector-list__pointer::after {
       content: '';

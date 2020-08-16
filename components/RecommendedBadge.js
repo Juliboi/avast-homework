@@ -13,7 +13,6 @@ badgeTemplate.innerHTML = `
       letter-spacing: 2px;
     }
 
-
   </style>
 
   <div class='recommended-badge'>
