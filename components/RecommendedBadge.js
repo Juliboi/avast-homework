@@ -4,13 +4,14 @@ badgeTemplate.innerHTML = `
 
     .recommended-badge {
       text-transform: uppercase;      
-      font-size: 1.1rem;
+      font-size: 1rem;
       padding: 0.7rem 1.6rem;
       margin-left: 3rem;
       background-color: var(--primary-blue);
       border-radius: 1rem;
       font-weight: 500;
       letter-spacing: 2px;
+      font-family: 'Montserrat'
     }
 
   </style>

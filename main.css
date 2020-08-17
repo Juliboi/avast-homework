@@ -68,6 +68,7 @@ body {
   box-shadow: 0px 3px 8px var(--ternary-blue);
   cursor: pointer;
   transition: background 350ms ease;
+  text-transform: uppercase;
 }
 
 .submit-button:hover {

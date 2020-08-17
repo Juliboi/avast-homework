@@ -38,6 +38,13 @@ selectorListTemplate.innerHTML = `
       width: 350px;
     }
 
+    p {
+      display: flex;
+      align-items: center;
+      font-size: 1.3rem;
+      font-family: 'Montserrat'
+    }
+
     .selector-list__monthly {
       color: var(--primary-green-dark);
     }
