@@ -28,4 +28,4 @@ class RecommendedBadge extends HTMLElement {
   }
 }
 
-window.customElements.define('recommended-badge', RecommendedBadge);
+export default RecommendedBadge;

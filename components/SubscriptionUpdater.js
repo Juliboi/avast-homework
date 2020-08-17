@@ -28,4 +28,4 @@ class SubscriptionUpdater extends HTMLElement {
   }
 }
 
-window.customElements.define('subscription-updater', SubscriptionUpdater);
+export default SubscriptionUpdater;

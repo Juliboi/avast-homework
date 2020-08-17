@@ -33,4 +33,4 @@ class SubscriptionFooter extends HTMLElement {
   }
 }
 
-window.customElements.define('subscription-footer', SubscriptionFooter);
+export default SubscriptionFooter;

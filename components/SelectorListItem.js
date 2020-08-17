@@ -19,7 +19,6 @@ selectorListTemplate.innerHTML = `
       border-top: 1px solid var(--secondary-text-transparent);
       border-bottom: 1px solid var(--secondary-text-transparent);
       font-size: 1.5rem;
-      font-family: 'Montserrat';
       cursor: pointer;
       transition: background 350ms ease;
     }
@@ -103,4 +102,4 @@ class SelectorListItem extends HTMLElement {
   }
 }
 
-window.customElements.define('selector-list-item', SelectorListItem);
+export default SelectorListItem;

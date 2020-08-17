@@ -31,4 +31,4 @@ class BenefitListItem extends HTMLElement {
   }
 }
 
-window.customElements.define('benefit-list-item', BenefitListItem);
+export default BenefitListItem;

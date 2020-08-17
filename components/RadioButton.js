@@ -4,6 +4,4 @@ class RadioButton extends HTMLInputElement {
   }
 }
 
-window.customElements.define('radio-button', RadioButton, {
-  extends: 'input',
-});
+export default RadioButton;

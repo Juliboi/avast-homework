@@ -13,10 +13,12 @@ bodyTemplate.innerHTML = `
   </ul>
 `;
 
-export class SubscriptionBody extends HTMLElement {
+class SubscriptionBody extends HTMLElement {
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
     this.shadow.appendChild(bodyTemplate.content.cloneNode(true));
   }
 }
+
+export default SubscriptionBody;

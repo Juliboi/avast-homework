@@ -48,7 +48,10 @@ class SubscriptionComponent extends HTMLElement {
     this.querySelector(
       '.submit-button'
     ).dataset.currentSubscription = this.state.currentSubscription;
+
+    console.log(this.querySelector('subscription-header'));
+    console.log(this.querySelector('benefit-list'));
   }
 }
 
-window.customElements.define('subscription-component', SubscriptionComponent);
+export default SubscriptionComponent;

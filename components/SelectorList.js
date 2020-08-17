@@ -85,4 +85,4 @@ class SelectorList extends HTMLElement {
   }
 }
 
-window.customElements.define('selector-list', SelectorList);
+export default SelectorList;

@@ -16,6 +16,4 @@ class SubmitButton extends HTMLButtonElement {
   }
 }
 
-window.customElements.define('submit-button', SubmitButton, {
-  extends: 'button',
-});
+export default SubmitButton;

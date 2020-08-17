@@ -28,4 +28,4 @@ class SubscriptionHeader extends HTMLElement {
   }
 }
 
-window.customElements.define('subscription-header', SubscriptionHeader);
+export default SubscriptionHeader;

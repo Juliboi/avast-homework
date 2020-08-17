@@ -8,6 +8,7 @@ benefitTemplate.innerHTML = `
     .benefit-list {
       padding-left: 0;
       margin-top: 0rem;
+      font-family: 'Montserrat';
     }
 
   </style>
@@ -30,8 +31,34 @@ class BenefitList extends HTMLElement {
   constructor() {
     super();
     this.shadow = this.attachShadow({ mode: 'open' });
-    this.shadow.appendChild(benefitTemplate.content.cloneNode(true));
+    // this.shadow.appendChild(benefitTemplate.content.cloneNode(true));
+
+    this.shadow.innerHTML = `
+      <style>
+        .benefit-list {
+          padding-left: 0;
+          margin-top: 0rem;
+        }
+
+      </style>
+
+        <ul class='benefit-list'>
+      ${contentOfBenefits
+        .map((data) => {
+          const { text, checked } = data;
+
+          return `
+            <benefit-list-item checked=${checked}>
+              <div slot="content">${text}</div>
+            </benefit-list-item>`;
+        })
+        .join('')}
+    </ul>`;
+  }
+
+  connectedCallback() {
+    // console.log(this.shadow.querySelector('benefit-list-item'));
   }
 }
 
-window.customElements.define('benefit-list', BenefitList);
+export default BenefitList;
